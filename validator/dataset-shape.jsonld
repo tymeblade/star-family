@@ -1,0 +1,77 @@
+{
+  "@context": "context.jsonld",
+  "@graph": [
+    {
+      "@id": "urn:star-stack:volume",
+      "@type": ["KnowledgeVolume", "Entity"],
+      "usesGraph": [
+        "urn:star-stack:bed",
+        "urn:star-stack:propositions",
+        "urn:star-stack:reifiers",
+        "urn:star-stack:takes"
+      ]
+    },
+    {
+      "@id": "urn:star-stack:bed",
+      "@type": ["Bundle", "Entity"],
+      "role": "asserted-facts",
+      "generatedAtTime": "2026-09-21T23:55:00Z",
+      "@graph": [
+        {
+          "@id": "urn:star-stack:fact:example",
+          "@type": "Fact",
+          "relates": ["urn:star-stack:fact:other"]
+        },
+        {
+          "@id": "urn:star-stack:fact:other",
+          "@type": "Fact"
+        }
+      ]
+    },
+    {
+      "@id": "urn:star-stack:propositions",
+      "@type": ["Bundle", "Entity"],
+      "role": "triple-term-basic-encoding",
+      "@graph": [
+        {
+          "@id": "urn:star-stack:prop:example-relates-other",
+          "@type": "PropositionForm",
+          "pfSubject": "urn:star-stack:fact:example",
+          "pfPredicate": "kv:relates",
+          "pfObject": { "@id": "urn:star-stack:fact:other" }
+        }
+      ]
+    },
+    {
+      "@id": "urn:star-stack:reifiers",
+      "@type": ["Bundle", "Entity"],
+      "role": "occurrences",
+      "@graph": [
+        {
+          "@id": "urn:star-stack:occ:extract-1",
+          "@type": ["Annotation", "Influence"],
+          "reifies": "urn:star-stack:prop:example-relates-other",
+          "certainty": 0.8,
+          "trit": "+",
+          "reasoning": {
+            "@type": "ReasoningStep",
+            "decision": "assert-in-bed",
+            "metaReasoning": {
+              "@type": "MetaReasoning",
+              "claims": [
+                "Edge is present in the source.",
+                "PropositionForm is Interop basic encoding."
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@id": "urn:star-stack:takes",
+      "@type": ["Bundle", "Entity"],
+      "role": "isolated-commentary",
+      "@graph": []
+    }
+  ]
+}
