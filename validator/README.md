@@ -1,4 +1,4 @@
 # Validator schemas
 
-Minimal JSON-LD documents for dumb validators.
-No explanatory text.
+Minimal JSON-LD documents modeled after schema.org.
+No explanatory prose. Suitable for dumb validators and schema.org-style registries.

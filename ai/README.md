@@ -1,4 +1,4 @@
 # AI-oriented schemas
 
-Schema documents with minimal pointers for AI consumers.
-Load the knowledge-volume form when present.
+Schema documents and minimal pointers for AI consumers.
+Includes forms suitable for Anthropic-style and other AI tool/schema registries.
